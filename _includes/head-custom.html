@@ -1,9 +1,11 @@
 <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 <style>
   /* force dark */
-  body {
+  @media (prefers-color-scheme: dark) {
+    body {
       background-color: black;
       filter: hue-rotate(180deg) invert(90%);
+    }
   }
 </style>
 <!-- Setup Google Analytics -->
