@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <style>
+      .sidebar {
+        height: 100%;
+        width: 25%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 20px;
+      }
+      .body-text {
+        margin-left: 25%;
+      }
+    </style>
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     {% include head-custom.html %}
@@ -15,7 +27,12 @@
       <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
       {% endif %}
 
-      {{ content }}
+      <div class="sidebar">
+        {% include toc.html html=content %}
+      </div>
+      <div class="">
+        {{ content }}
+      </div>
 
       {% if site.github.private != true and site.github.license %}
       <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
