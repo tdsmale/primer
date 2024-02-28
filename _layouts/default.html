@@ -5,18 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-      .sidebar {
-        height: 100%;
+      .column {
+        float: left;
+        padding: 10px;
+      }
+
+      .column.left {
         width: 25%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        padding: 20px;
       }
-      .sidebar-body-text {
-        margin-left: 25%;
+      
+      .column.right {
+        width: 75%;
       }
-      .sidebar-row:after {
+
+      /* Clear floats after the columns */
+      .column-container:after {
         content: "";
         display: table;
         clear: both;
@@ -31,11 +34,11 @@
       {% if site.title and site.title != page.title %}
       <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
       {% endif %}
-      <div class="sidebar-row">
-        <div class="sidebar">
+      <div class="column-container">
+        <div class="column left">
           {% include toc.html html=content %}
         </div>
-        <div class="sidebar-body-text">
+        <div class="column right">
           {{ content }}
         </div>
       </div>
