@@ -5,21 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-      .column {
+      .tdsmale-column {
         float: left;
         padding: 10px;
       }
 
-      .column.left {
+      .tdsmale-toc ul {
+        padding-left: 1em;
+      }
+
+      .tdsmale-column.left {
         width: 25%;
       }
       
-      .column.right {
+      .tdsmale-column.right {
         width: 75%;
       }
 
       /* Clear floats after the columns */
-      .column-container:after {
+      .tdsmale-column-container:after {
         content: "";
         display: table;
         clear: both;
@@ -34,11 +38,11 @@
       {% if site.title and site.title != page.title %}
       <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
       {% endif %}
-      <div class="column-container">
-        <div class="column left">
+      <div class="tdsmale-column-container">
+        <div class="tdsmale-column left toc">
           {% include toc.html html=content %}
         </div>
-        <div class="column right">
+        <div class="tdsmale-column right">
           {{ content }}
         </div>
       </div>
