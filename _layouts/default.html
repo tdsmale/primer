@@ -13,8 +13,13 @@
         top: 0;
         padding: 20px;
       }
-      .body-text {
+      .sidebar-body-text {
         margin-left: 25%;
+      }
+      .sidebar-row:after {
+        content: "";
+        display: table;
+        clear: both;
       }
     </style>
 {% seo %}
@@ -26,12 +31,13 @@
       {% if site.title and site.title != page.title %}
       <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
       {% endif %}
-
-      <div class="sidebar">
-        {% include toc.html html=content %}
-      </div>
-      <div class="body-text">
-        {{ content }}
+      <div class="sidebar-row">
+        <div class="sidebar">
+          {% include toc.html html=content %}
+        </div>
+        <div class="sidebar-body-text">
+          {{ content }}
+        </div>
       </div>
 
       {% if site.github.private != true and site.github.license %}
